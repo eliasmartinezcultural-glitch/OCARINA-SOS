@@ -54,7 +54,7 @@ button,input,select,textarea{font:inherit}button:focus-visible,a:focus-visible,i
 
 <section class="card panel" id="peligro">
 <button class="secondary no-print" data-home>← Volver al inicio</button>
-<h2>Si hay peligro</h2>
+<h2>🆘 Si hay peligro</h2>
 <div class="step"><span class="number">1</span><div><strong>Alejate del agua.</strong><br>No cruces caminos, canales ni cauces inundados, ni a pie ni en vehículo. El agua puede ocultar pozos o arrastrarte.</div></div>
 <div class="step"><span class="number">2</span><div><strong>Buscá un lugar seguro.</strong><br>Seguí las instrucciones de las autoridades. Si el agua amenaza tu vivienda, no esperes a que llegue adentro para actuar. No te expongas para salvar objetos o animales.</div></div>
 <div class="step"><span class="number">3</span><div><strong>Pedí ayuda directamente.</strong><br>Llamá al número de emergencia local que tengas confirmado. Si no conecta, probá otro canal disponible o el contacto local acordado. No dependas de que alguien lea un mensaje.</div></div>
@@ -65,7 +65,7 @@ button,input,select,textarea{font:inherit}button:focus-visible,a:focus-visible,i
 
 <section class="card panel" id="preparar">
 <button class="secondary no-print" data-home>← Volver al inicio</button>
-<h2>Prepararme rápido</h2>
+<h2>🎒 Prepararme rápido</h2>
 <p>Marcá lo que ya tenés. No salgas durante el temporal solo para completar la lista.</p>
 <div id="checks">
 <label class="step"><input type="checkbox"> <span><strong>Celular cargado</strong><br>Activá ahorro de batería si hace falta.</span></label>
@@ -82,7 +82,7 @@ button,input,select,textarea{font:inherit}button:focus-visible,a:focus-visible,i
 
 <section class="card panel" id="avisar">
 <button class="secondary no-print" data-home>← Volver al inicio</button>
-<h2>Preparar un aviso</h2>
+<h2>Avisar a alguien</h2>
 <p>Completá solo lo que sepas. Después copiá el texto y enviálo a un contacto confiable o al canal oficial confirmado. En una emergencia inmediata, llamá.</p>
 <label class="field" for="sector">Sector o paraje</label><input id="sector" placeholder="Ej.: Punta de Sierra">
 <label class="field" for="referencia">Referencia para encontrar el lugar</label><input id="referencia" placeholder="Picada, chacra o referencia conocida">
@@ -91,20 +91,25 @@ button,input,select,textarea{font:inherit}button:focus-visible,a:focus-visible,i
 <label class="field" for="urgencia">¿Hay peligro inmediato?</label><select id="urgencia"><option>No sé / necesito que lo evalúen</option><option>Sí, hay peligro inmediato</option><option>No parece haber peligro inmediato</option></select>
 <label class="field" for="contacto">Teléfono para devolver el llamado (opcional)</label><input id="contacto" inputmode="tel" placeholder="Tu número">
 <label class="field" for="hora">Hora del reporte (aproximada)</label><input id="hora" placeholder="Ej.: 18:40">
-<label class="field" for="mensaje">Mensaje listo para copiar</label><textarea id="mensaje" readonly></textarea>
-<div class="row no-print"><button class="primary" id="copy">Copiar mensaje</button><button class="secondary" id="share">Compartir…</button></div>
+<label class="field" for="mensaje">Este es el mensaje que vas a enviar</label><textarea id="mensaje" readonly></textarea>
+<div class="row no-print"><button class="primary" id="copy">📋 Preparar mensaje</button><button class="secondary" id="share">📲 Enviar / compartir</button></div>
 <p id="status" class="tiny" aria-live="polite">Revisá el mensaje antes de enviarlo. Compartir no garantiza que alguien lo reciba.</p>
 </section>
 
 <section class="card">
-<h2>Importante</h2>
+<h2>ℹ️ Sobre esta guía</h2>
 <p>Esta guía ofrece información preventiva general. No monitorea el clima, no confirma el estado de caminos, no envía alertas y no reemplaza las instrucciones de las autoridades.</p>
 <p><strong>Contactos:</strong> antes de distribuir este recurso, confirmá los números operativos de emergencia con los organismos locales. No agregamos teléfonos locales sin verificación.</p>
-<button class="secondary no-print" onclick="window.print()">Imprimir / guardar PDF</button>
+<button class="primary no-print" id="saveGuide">📥 Guardar guía de ayuda</button><p id="saveStatus" class="tiny" aria-live="polite">Guardala en este teléfono para volver a consultarla. Si no aparece la opción de guardar, usá el menú del navegador.</p>
 </section>
 </main>
 <footer><strong>OCARINA SOS · Recurso comunitario independiente.</strong><br>Preparado para lectura simple en teléfonos Android. Guardá el archivo en el teléfono y probalo antes de depender de él. Las funciones de llamada, copiar y compartir dependen del dispositivo y de la conectividad disponible.</footer>
 <script>
+document.getElementById('saveGuide').addEventListener('click',()=>{
+ const status=document.getElementById('saveStatus');
+ status.textContent='Se abrirá la opción para guardar o imprimir esta guía. Elegí “Guardar como PDF” si aparece. Si no aparece, abrí el menú del navegador y buscá “Agregar a pantalla de inicio” o “Guardar página”.';
+ window.print();
+});
 const panels=[...document.querySelectorAll('.panel')];
 function openPanel(id){document.getElementById('home').classList.toggle('hidden',id!=='home');document.querySelectorAll('.panel[id]').forEach(p=>{if(p.id!=='home')p.classList.toggle('active',p.id===id);});if(id==='home'){document.getElementById('home').scrollIntoView({block:'start'});}else{document.getElementById(id).scrollIntoView({block:'start'});}}
 document.querySelectorAll('[data-open]').forEach(b=>b.addEventListener('click',()=>openPanel(b.dataset.open)));
