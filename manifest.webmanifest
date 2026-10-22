@@ -1,0 +1,11 @@
+{
+  "name": "OCARINA SOS · Guía rural",
+  "short_name": "OCARINA SOS",
+  "lang": "es-AR",
+  "description": "Guía comunitaria de autoprotección ante lluvias intensas y crecidas en San Patricio del Chañar.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#eef7fc",
+  "theme_color": "#7f1018"
+}
