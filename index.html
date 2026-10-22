@@ -59,6 +59,21 @@ footer{max-width:650px;margin:auto;padding:4px 18px 28px;color:#53665d;font-size
 <main>
 <div class="urgent"><strong>⚠️ ¿Hay peligro inmediato?</strong>Si el agua está entrando o sube rápidamente, o alguien está en peligro, alejate del agua y contactá directamente a los servicios de emergencia. No esperes a usar esta guía ni a recibir respuesta por WhatsApp.</div>
 
+<section class="card" id="contactos">
+<h2>📞 Teléfonos de emergencia</h2>
+<p class="tiny">Números publicados por la Policía de Neuquén. Tocá para llamar. Si no conecta, probá otra línea disponible; no esperes respuesta por WhatsApp si hay peligro inmediato.</p>
+<div class="actions">
+<a class="button red" href="tel:105"><span class="symbol">🆘</span><span><span class="copy">105 · Defensa Civil</span><small>Riesgo e inundaciones</small></span></a>
+<a class="button" href="tel:101"><span class="symbol">🚓</span><span><span class="copy">101 · Policía</span><small>Emergencias policiales</small></span></a>
+<a class="button" href="tel:100"><span class="symbol">🚒</span><span><span class="copy">100 · Bomberos</span><small>Emergencias y rescate</small></span></a>
+<a class="button" href="tel:107"><span class="symbol">🚑</span><span><span class="copy">107 · Emergencias médicas</span><small>Asistencia sanitaria urgente</small></span></a>
+<a class="button" href="tel:+542994855084"><span class="symbol">🏥</span><span><span class="copy">Hospital local</span><small>0299 485-5084 · confirmar vigencia</small></span></a>
+</div>
+<div class="note"><strong>Un botón para preparar el mensaje:</strong><p>Se abrirá WhatsApp con un texto listo para completar. Elegí el contacto correcto y revisá el sector y la referencia antes de enviarlo. No es un canal oficial de despacho ni confirma recepción.</p>
+<button class="primary" id="quickMessage">💬 Abrir mensaje de emergencia</button></div>
+<p class="tiny">Fuentes consultadas: Policía de la Provincia del Neuquén y directorios públicos del hospital local. Última revisión de esta página: 22/10/2026.</p>
+</section>
+
 <section class="card" id="home">
 <h2>¿Qué necesitás ahora?</h2>
 <div class="actions three">
@@ -126,6 +141,10 @@ const panels=[...document.querySelectorAll('.panel')];
 function openPanel(id){document.getElementById('home').classList.toggle('hidden',id!=='home');document.querySelectorAll('.panel[id]').forEach(p=>{if(p.id!=='home')p.classList.toggle('active',p.id===id);});if(id==='home'){document.getElementById('home').scrollIntoView({block:'start'});}else{document.getElementById(id).scrollIntoView({block:'start'});}}
 document.querySelectorAll('[data-open]').forEach(b=>b.addEventListener('click',()=>openPanel(b.dataset.open)));
 document.querySelectorAll('[data-home]').forEach(b=>b.addEventListener('click',()=>openPanel('home')));
+document.getElementById('quickMessage').addEventListener('click',()=>{
+  const text='EMERGENCIA POR LLUVIAS — SAN PATRICIO DEL CHAÑAR\\nSector/paraje: [COMPLETAR]\\nReferencia para ubicarme: [COMPLETAR]\\nQué ocurre: [COMPLETAR]\\nPersonas en el lugar: [COMPLETAR]\\nPeligro inmediato: [SÍ / NO / NO SÉ]\\nTeléfono para devolver el llamado: [COMPLETAR]\\nHora aproximada: [COMPLETAR]\\n\\nSi hay peligro inmediato, llamar a emergencias. Este mensaje necesita ser enviado y no confirma recepción.';
+  window.location.href='https://wa.me/?text='+encodeURIComponent(text);
+});
 const boxes=[...document.querySelectorAll('#checks input')];
 function progress(){document.getElementById('progress').textContent=boxes.filter(x=>x.checked).length+' de '+boxes.length+' revisados';}
 boxes.forEach(x=>x.addEventListener('change',progress));
