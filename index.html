@@ -4,11 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#153f35">
+<meta name="color-scheme" content="light dark">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="description" content="Guía breve de autoprotección ante lluvias intensas para familias rurales de San Patricio del Chañar.">
 <title>OCARINA SOS · Guía rural</title>
 <style>
 :root{--blue:#123b66;--red:#c9252b;--green:#147b45;--gold:#f5c64a;--ink:#172f43;--bg:#eef7fc;--line:#d4e3ed;--card:#fff;--muted:#40596b;--focus:#8a4fff}
-*{box-sizing:border-box}html{scroll-behavior:auto;scroll-padding-top:12px}body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}body.large-text{font-size:21px}body.night{--blue:#b8dcff;--red:#ffaaa5;--green:#8ce5a9;--gold:#ffe08a;--ink:#f5f7fb;--bg:#101820;--line:#485866;--card:#1b2732;--muted:#d4e0ea;--focus:#ffe08a}body.high-contrast{--blue:#000;--red:#a00000;--green:#005b23;--gold:#ffdb00;--ink:#000;--bg:#fff;--line:#333;--card:#fff;--muted:#111;--focus:#6b00ff}body.night.high-contrast{--blue:#fff;--red:#ffb8b8;--green:#9bffba;--gold:#ffec8a;--ink:#fff;--bg:#000;--line:#fff;--card:#000;--muted:#fff;--focus:#ffec8a}a,button,input,select,textarea{touch-action:manipulation}a,button{min-height:44px}
+*{box-sizing:border-box}html{scroll-behavior:auto;scroll-padding-top:12px}body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}body.large-text{font-size:22px}body.extra-large-text{font-size:26px}body.large-text h2,body.extra-large-text h2{line-height:1.3}body.large-text .button small,body.extra-large-text .button small{font-size:1rem}body.large-text .tiny,body.extra-large-text .tiny{font-size:1rem}body.large-text .tile small,body.extra-large-text .tile small{font-size:1rem}body.large-text input,body.large-text select,body.large-text textarea,body.extra-large-text input,body.extra-large-text select,body.extra-large-text textarea{font-size:1.1rem}body.night{--blue:#b8dcff;--red:#ffaaa5;--green:#8ce5a9;--gold:#ffe08a;--ink:#f5f7fb;--bg:#101820;--line:#485866;--card:#1b2732;--muted:#d4e0ea;--focus:#ffe08a}body.high-contrast{--blue:#000;--red:#a00000;--green:#005b23;--gold:#ffdb00;--ink:#000;--bg:#fff;--line:#333;--card:#fff;--muted:#111;--focus:#6b00ff}body.night.high-contrast{--blue:#fff;--red:#ffb8b8;--green:#9bffba;--gold:#ffec8a;--ink:#fff;--bg:#000;--line:#fff;--card:#000;--muted:#fff;--focus:#ffec8a}a,button,input,select,textarea{touch-action:manipulation}a,button{min-height:48px}button:disabled{opacity:.65;cursor:not-allowed}
 header{background:linear-gradient(140deg,#c9efff,#f3fbff);text-align:center;padding:18px 14px 15px;border-bottom:4px solid #8ccfe9}.night header{background:#172a38;border-color:#8fb9d7}.high-contrast header{background:#fff;border-color:#000}.night.high-contrast header{background:#000;border-color:#fff}.wrap,main,footer{max-width:760px;margin:auto}.skip-link{position:absolute;left:8px;top:-100px;background:var(--card);color:var(--ink);padding:12px;z-index:100;border:3px solid var(--focus)}.skip-link:focus{top:8px}.access{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:10px;background:var(--card);border-bottom:1px solid var(--line)}.access button{border:2px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);font-weight:800;padding:9px 12px;min-height:48px}.access-label{width:100%;text-align:center;font-weight:850;color:var(--ink)}.kicker{font-size:.8rem;font-weight:850;color:var(--blue);letter-spacing:.08em}.land{font-size:2.2rem}h1{font-size:clamp(2.5rem,12vw,4rem);line-height:.86;margin:8px 0;color:var(--blue);letter-spacing:-.06em}h1 span{color:var(--red)}header p{margin:7px 0;font-weight:800}
 main{padding:12px}.urgent{background:#fff1ce;border:2px solid var(--gold);border-radius:15px;padding:13px;margin-bottom:12px}.urgent strong{font-size:1.12rem}
 .card{background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:17px;padding:16px;margin:12px 0;box-shadow:0 3px 12px #123b660d}.button{background:var(--card);color:var(--ink)}.tiny{color:var(--muted)}.note{color:var(--ink)}h2{font-size:1.25rem;line-height:1.15;margin:0 0 10px}
@@ -23,8 +26,8 @@ button,input,select,textarea{font:inherit}button:focus-visible,a:focus-visible,i
 <body>
 <a class="skip-link" href="#mainContent">Saltar al contenido principal</a>
 <header><div class="wrap"><div class="land" aria-hidden="true">🌧️ 🏡 🌧️</div><div class="kicker">SAN PATRICIO DEL CHAÑAR</div><h1>OCARINA <span>SOS</span></h1><p>GUÍA RÁPIDA ANTE LLUVIAS</p></div></header>
-<nav class="access" aria-label="Opciones de accesibilidad"><div class="access-label">♿ Ajustá la pantalla</div><button type="button" id="nightToggle" aria-pressed="false">🌙 Modo noche</button><button type="button" id="textToggle" aria-pressed="false">🔎 Letra grande</button><button type="button" id="contrastToggle" aria-pressed="false">◐ Alto contraste</button></nav>
-<main id="mainContent">
+<nav class="access" aria-label="Opciones de accesibilidad"><div class="access-label">♿ Ajustá la pantalla</div><button type="button" id="nightToggle" aria-pressed="false">🌙 Modo noche</button><button type="button" id="textToggle" aria-pressed="false">🔎 Letra grande</button><button type="button" id="extraTextToggle" aria-pressed="false">🔍 Letra muy grande</button><button type="button" id="contrastToggle" aria-pressed="false">◐ Alto contraste</button></nav>
+<main id="mainContent"><section class="card" aria-label="Atajo de emergencia"><h2>🆘 Primero, tu seguridad</h2><p><strong>Si hay peligro inmediato, no esperes a completar formularios.</strong> Alejate del agua en movimiento y llamá a un servicio de emergencia disponible.</p><div class="grid"><a class="button red" href="tel:100"><span class="symbol" aria-hidden="true">🚒</span><span><b>Llamar a Bomberos</b><small>100 · tocar para llamar</small></span></a><a class="button red" href="tel:101"><span class="symbol" aria-hidden="true">🆘</span><span><b>Llamar a Policía</b><small>101 · tocar para llamar</small></span></a><a class="button" href="tel:103"><span class="symbol" aria-hidden="true">🛟</span><span><b>Defensa Civil</b><small>103 · si no conecta, probar 105</small></span></a><a class="button" href="tel:107"><span class="symbol" aria-hidden="true">🚑</span><span><b>Emergencia médica</b><small>107 · tocar para llamar</small></span></a></div><p class="tiny">La llamada solo funciona si el dispositivo y la red permiten comunicarse. No se envía automáticamente una ubicación.</p></section>
 <div class="urgent"><strong>⚠️ ¿Hay peligro inmediato?</strong>Si el agua está entrando o sube rápidamente, o alguien está en peligro, alejate del agua y contactá directamente a los servicios de emergencia. No esperes a usar esta guía ni a recibir respuesta por WhatsApp.</div>
 
 <section class="card" id="contactos">
@@ -56,7 +59,8 @@ button,input,select,textarea{font:inherit}button:focus-visible,a:focus-visible,i
 
 <section class="card panel" id="peligro">
 <button class="secondary no-print" data-home>← Volver al inicio</button>
-<h2>🆘 Si hay peligro</h2>
+<h2 tabindex="-1">🆘 Si hay peligro</h2>
+<div class="warn"><strong>Si estás en riesgo ahora:</strong> dejá los objetos. No cruces agua ni caminos inundados. No toques cables caídos. Buscá un lugar seguro siguiendo instrucciones oficiales.</div>
 <div class="step"><span class="number">1</span><div><strong>Alejate del agua.</strong><br>No cruces caminos, canales ni cauces inundados, ni a pie ni en vehículo. El agua puede ocultar pozos o arrastrarte.</div></div>
 <div class="step"><span class="number">2</span><div><strong>Buscá un lugar seguro.</strong><br>Seguí las instrucciones de las autoridades. Si el agua amenaza tu vivienda, no esperes a que llegue adentro para actuar. No te expongas para salvar objetos o animales.</div></div>
 <div class="step"><span class="number">3</span><div><strong>Pedí ayuda directamente.</strong><br>Llamá al número de emergencia local que tengas confirmado. Si no conecta, probá otro canal disponible o el contacto local acordado. No dependas de que alguien lea un mensaje.</div></div>
@@ -67,7 +71,7 @@ button,input,select,textarea{font:inherit}button:focus-visible,a:focus-visible,i
 
 <section class="card panel" id="preparar">
 <button class="secondary no-print" data-home>← Volver al inicio</button>
-<h2>🎒 Prepararme rápido</h2>
+<h2 tabindex="-1">🎒 Prepararme rápido</h2>
 <p>Marcá lo que ya tenés. No salgas durante el temporal solo para completar la lista.</p>
 <div id="checks">
 <label class="step"><input type="checkbox"> <span><strong>Celular cargado</strong><br>Activá ahorro de batería si hace falta.</span></label>
@@ -77,25 +81,25 @@ button,input,select,textarea{font:inherit}button:focus-visible,a:focus-visible,i
 <label class="step"><input type="checkbox"> <span><strong>Agua potable, abrigo y elementos básicos</strong></span></label>
 <label class="step"><input type="checkbox"> <span><strong>Plan de contacto</strong><br>Una persona de confianza sabe en qué sector estás.</span></label>
 </div>
-<p id="progress" class="tiny">0 de 6 revisados</p>
+<p id="progress" class="tiny" role="status" aria-live="polite">0 de 6 revisados</p>
 <button class="secondary no-print" id="reset">Desmarcar lista</button>
 <div class="note"><strong>Si puede haber evacuación:</strong> seguí las indicaciones oficiales y no esperes a que el teléfono se quede sin batería para comunicarte.</div>
 </section>
 
 <section class="card panel" id="avisar">
 <button class="secondary no-print" data-home>← Volver al inicio</button>
-<h2>Avisar a alguien</h2>
+<h2 tabindex="-1">Avisar a alguien</h2>
 <p>Completá solo lo que sepas. No hace falta llenar todo. Luego abrí WhatsApp, elegí una persona de confianza o un canal oficial previamente confirmado y tocá Enviar. En peligro inmediato, no dependas de este formulario.</p>
-<label class="field" for="sector">Sector o paraje</label><input id="sector" placeholder="Ej.: Punta de Sierra">
-<label class="field" for="referencia">Referencia para encontrar el lugar</label><input id="referencia" placeholder="Picada, chacra o referencia conocida">
-<label class="field" for="situacion">¿Qué está pasando?</label><select id="situacion"><option value="Necesito informar una situación por lluvias">Necesito informar una situación</option><option>El agua se acerca a la vivienda</option><option>Camino o acceso con agua</option><option>Necesito asistencia para personas</option><option>Estoy incomunicado / temo quedar aislado</option></select>
-<label class="field" for="personas">¿Cuántas personas hay en el lugar?</label><input id="personas" inputmode="numeric" placeholder="Cantidad, si la sabés">
-<label class="field" for="urgencia">¿Hay peligro inmediato?</label><select id="urgencia"><option>No sé / necesito que lo evalúen</option><option>Sí, hay peligro inmediato</option><option>No parece haber peligro inmediato</option></select>
-<label class="field" for="contacto">Teléfono para devolver el llamado (opcional)</label><input id="contacto" inputmode="tel" placeholder="Tu número">
-<label class="field" for="hora">Hora del reporte (aproximada)</label><input id="hora" placeholder="Ej.: 18:40">
-<label class="field" for="mensaje">Este es el mensaje que vas a enviar</label><textarea id="mensaje" readonly></textarea>
+<label class="field" for="sector">1. ¿En qué sector estás?</label><input id="sector" autocomplete="address-level3" placeholder="Ej.: Punta de Sierra" aria-describedby="sectorHelp"><p class="tiny" id="sectorHelp">No hace falta una dirección exacta: usá paraje o sector conocido.</p>
+<label class="field" for="referencia">2. ¿Qué referencia ayuda a encontrarte?</label><input id="referencia" placeholder="Picada, chacra, tranquera o camino">
+<label class="field" for="situacion">3. ¿Qué está pasando?</label><select id="situacion"><option value="Necesito informar una situación por lluvias">Necesito informar una situación</option><option>El agua se acerca a la vivienda</option><option>Camino o acceso con agua</option><option>Necesito asistencia para personas</option><option>Estoy incomunicado / temo quedar aislado</option></select>
+<label class="field" for="personas">4. ¿Cuántas personas están allí?</label><input id="personas" inputmode="numeric" placeholder="Cantidad, si la sabés">
+<label class="field" for="urgencia">5. ¿Hay peligro inmediato?</label><select id="urgencia"><option>No sé / necesito que lo evalúen</option><option>Sí, hay peligro inmediato</option><option>No parece haber peligro inmediato</option></select>
+<label class="field" for="contacto">6. Teléfono de contacto (opcional)</label><input id="contacto" inputmode="tel" placeholder="Tu número">
+<label class="field" for="hora">Hora aproximada del reporte (opcional)</label><input id="hora" placeholder="Ej.: 18:40">
+<label class="field" for="mensaje">Mensaje listo para revisar</label><textarea id="mensaje" readonly></textarea>
 <div class="no-print"><button class="primary" id="copy">📋 Preparar mensaje para copiar</button><button class="secondary" id="share">📲 Abrir opciones para compartir</button><button class="secondary" id="openWhatsApp">💬 Abrir WhatsApp con el mensaje</button></div>
-<p id="status" class="tiny" aria-live="polite">Revisá el mensaje antes de enviarlo. Compartir no garantiza que alguien lo reciba.</p>
+<p id="status" class="tiny" role="status" aria-live="polite" aria-atomic="true">Revisá el mensaje antes de enviarlo. Compartir no garantiza que alguien lo reciba.</p>
 </section>
 
 <section class="card">
@@ -108,7 +112,8 @@ button,input,select,textarea{font:inherit}button:focus-visible,a:focus-visible,i
 <footer><strong>OCARINA SOS · Recurso comunitario independiente.</strong><br>Preparado para lectura simple en teléfonos Android. Guardá el archivo en el teléfono y probalo antes de depender de él. Las funciones de llamada, copiar y compartir dependen del dispositivo y de la conectividad disponible.</footer>
 <script>
 document.getElementById('nightToggle').addEventListener('click',()=>{const on=document.body.classList.toggle('night');document.getElementById('nightToggle').setAttribute('aria-pressed',String(on));document.getElementById('nightToggle').textContent=on?'☀️ Modo claro':'🌙 Modo noche';});
-document.getElementById('textToggle').addEventListener('click',()=>{const on=document.body.classList.toggle('large-text');document.getElementById('textToggle').setAttribute('aria-pressed',String(on));document.getElementById('textToggle').textContent=on?'🔎 Letra normal':'🔎 Letra grande';});
+document.getElementById('textToggle').addEventListener('click',()=>{const on=document.body.classList.toggle('large-text');document.body.classList.remove('extra-large-text');document.getElementById('extraTextToggle').setAttribute('aria-pressed','false');document.getElementById('extraTextToggle').textContent='🔍 Letra muy grande';document.getElementById('textToggle').setAttribute('aria-pressed',String(on));document.getElementById('textToggle').textContent=on?'🔎 Letra normal':'🔎 Letra grande';});
+document.getElementById('extraTextToggle').addEventListener('click',()=>{const on=document.body.classList.toggle('extra-large-text');document.body.classList.remove('large-text');document.getElementById('textToggle').setAttribute('aria-pressed','false');document.getElementById('textToggle').textContent='🔎 Letra grande';document.getElementById('extraTextToggle').setAttribute('aria-pressed',String(on));document.getElementById('extraTextToggle').textContent=on?'🔍 Letra estándar':'🔍 Letra muy grande';});
 document.getElementById('contrastToggle').addEventListener('click',()=>{const on=document.body.classList.toggle('high-contrast');document.getElementById('contrastToggle').setAttribute('aria-pressed',String(on));document.getElementById('contrastToggle').textContent=on?'◐ Contraste normal':'◐ Alto contraste';});
 document.getElementById('saveGuide').addEventListener('click',()=>{
  const status=document.getElementById('saveStatus');
@@ -116,14 +121,12 @@ document.getElementById('saveGuide').addEventListener('click',()=>{
  window.print();
 });
 const panels=[...document.querySelectorAll('.panel')];
-function openPanel(id){document.getElementById('home').classList.toggle('hidden',id!=='home');document.querySelectorAll('.panel[id]').forEach(p=>{if(p.id!=='home')p.classList.toggle('active',p.id===id);});if(id==='home'){document.getElementById('home').scrollIntoView({block:'start'});}else{document.getElementById(id).scrollIntoView({block:'start'});}}
+function openPanel(id){document.getElementById('home').classList.toggle('hidden',id!=='home');document.querySelectorAll('.panel[id]').forEach(p=>{if(p.id!=='home')p.classList.toggle('active',p.id===id);});if(id==='home'){document.getElementById('home').scrollIntoView({block:'start'});}else{const panel=document.getElementById(id);panel.scrollIntoView({block:'start'});const heading=panel.querySelector('h2');if(heading){heading.setAttribute('tabindex','-1');heading.focus({preventScroll:true});}}}
 document.querySelectorAll('[data-open]').forEach(b=>b.addEventListener('click',()=>openPanel(b.dataset.open)));
 document.querySelectorAll('[data-home]').forEach(b=>b.addEventListener('click',()=>openPanel('home')));
-document.getElementById('quickMessage').addEventListener('click',()=>{
-  const text='EMERGENCIA POR LLUVIAS — SAN PATRICIO DEL CHAÑAR\\nSector/paraje: [COMPLETAR]\\nReferencia para ubicarme: [COMPLETAR]\\nQué ocurre: [COMPLETAR]\\nPersonas en el lugar: [COMPLETAR]\\nPeligro inmediato: [SÍ / NO / NO SÉ]\\nTeléfono para devolver el llamado: [COMPLETAR]\\nHora aproximada: [COMPLETAR]\\n\\nSi hay peligro inmediato, llamar a emergencias. Este mensaje necesita ser enviado y no confirma recepción.';
-  window.location.href='https://wa.me/?text='+encodeURIComponent(text);
-});
+document.getElementById('quickMessage').addEventListener('click',()=>{openPanel('avisar');document.getElementById('sector').focus({preventScroll:true});});
 const boxes=[...document.querySelectorAll('#checks input')];
+boxes.forEach((box,i)=>{box.id='check-'+(i+1);box.setAttribute('aria-label',box.parentElement.innerText.replace(/\\s+/g,' ').trim());});
 function progress(){document.getElementById('progress').textContent=boxes.filter(x=>x.checked).length+' de '+boxes.length+' revisados';}
 boxes.forEach(x=>x.addEventListener('change',progress));
 document.getElementById('reset').addEventListener('click',()=>{boxes.forEach(x=>x.checked=false);progress();});
