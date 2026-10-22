@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#153f35">
+<link rel="manifest" href="./manifest.webmanifest">
 <meta name="color-scheme" content="light dark">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -27,6 +28,11 @@ button,input,select,textarea{font:inherit}button:focus-visible,a:focus-visible,i
 <a class="skip-link" href="#mainContent">Saltar al contenido principal</a>
 <header><div class="wrap"><div class="land" aria-hidden="true">🌧️ 🏡 🌧️</div><div class="kicker">SAN PATRICIO DEL CHAÑAR</div><h1>OCARINA <span>SOS</span></h1><p>GUÍA RÁPIDA ANTE LLUVIAS</p></div></header>
 <nav class="access" aria-label="Opciones de accesibilidad"><div class="access-label">♿ Ajustá la pantalla</div><button type="button" id="nightToggle" aria-pressed="false">🌙 Modo noche</button><button type="button" id="textToggle" aria-pressed="false">🔎 Letra grande</button><button type="button" id="extraTextToggle" aria-pressed="false">🔍 Letra muy grande</button><button type="button" id="contrastToggle" aria-pressed="false">◐ Alto contraste</button></nav>
+<section class="card" id="connectionStatus" aria-live="polite" style="border:2px solid var(--line);margin-top:12px">
+<strong id="connectionTitle">📶 Estado de conexión</strong>
+<p id="connectionText" style="margin:.35rem 0">La guía no confirma alertas ni recibe pedidos. Si hay peligro, llamá a emergencias.</p>
+<p class="tiny" style="margin:.35rem 0">El modo sin conexión solo queda disponible después de cargar la guía con internet y si el navegador admite almacenamiento offline. La primera visita requiere conexión.</p>
+</section>
 <main id="mainContent">
 <section class="card" aria-label="Aviso prioritario por crecida" style="background:#7f1018;color:#fff;border:4px solid #ffcc00">
 <h2 style="font-size:1.55rem;color:#fff">🚨 AVISO PRIORITARIO · LLUVIAS Y CRECIDA</h2>
@@ -156,6 +162,30 @@ makeMessage();
 document.getElementById('copy').addEventListener('click',async()=>{const t=document.getElementById('mensaje'),s=document.getElementById('status');try{await navigator.clipboard.writeText(t.value);s.textContent='Mensaje copiado. Abrí WhatsApp, elegí el contacto adecuado y pegalo.';}catch(e){t.focus();t.select();s.textContent='Seleccioná Copiar desde el menú del teléfono y pegá el texto en tu mensaje.';}});
 document.getElementById('openWhatsApp').addEventListener('click',()=>{makeMessage();window.location.href='https://wa.me/?text='+encodeURIComponent(document.getElementById('mensaje').value);});
 document.getElementById('share').addEventListener('click',async()=>{const s=document.getElementById('status'),data={title:'Aviso por lluvias',text:document.getElementById('mensaje').value};if(navigator.share){try{await navigator.share(data);s.textContent='Se abrió el menú para compartir. Esto no confirma recepción.';}catch(e){s.textContent='No se compartió. Podés copiar el mensaje y enviarlo manualmente.';}}else{s.textContent='Tu navegador no ofrece compartir desde aquí. Usá Copiar mensaje y pegalo en WhatsApp.';}});
+
+// Estado de conexión y registro de la guía sin conexión. Requiere HTTPS y una primera visita con internet.
+(function(){
+ const title=document.getElementById('connectionTitle');
+ const detail=document.getElementById('connectionText');
+ function updateConnection(){
+   const online=navigator.onLine;
+   title.textContent=online?'📶 Conexión disponible':'📴 Sin conexión a internet';
+   detail.textContent=online?'La conexión del dispositivo aparece disponible; esto no confirma que los servicios de emergencia respondan ni que las rutas sean transitables.':'La guía puede seguir visible si quedó guardada en este navegador. Los enlaces externos necesitan conexión y las llamadas requieren cobertura telefónica.';
+ }
+ window.addEventListener('online',updateConnection);
+ window.addEventListener('offline',updateConnection);
+ updateConnection();
+ if ('serviceWorker' in navigator && location.protocol === 'https:') {
+   window.addEventListener('load', function(){
+     navigator.serviceWorker.register('./sw.js')
+       .then(function(){detail.textContent += ' Preparación de almacenamiento offline iniciada; abrí esta guía con conexión al menos una vez y luego probá el modo avión.';})
+       .catch(function(){detail.textContent += ' El navegador no pudo activar el modo sin conexión; guardá también una copia en PDF.';});
+   });
+ } else {
+   detail.textContent += ' Este navegador o contexto no permite instalar el modo offline automáticamente; guardá una copia en PDF.';
+ }
+})();
+
 </script>
 </body>
 </html>
